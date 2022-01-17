@@ -1,0 +1,12 @@
+type Grant @entity {
+  id: ID!
+  owner: Bytes! # address
+  payee: Bytes
+  data: String!
+  amount: BigInt!
+}
+
+type GrantCount @entity{
+  id: ID!
+  count: BigInt!
+}

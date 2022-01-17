@@ -1,0 +1,29 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: GrantManager
+    network: ropsten
+    source:
+      address: "0x78a7A8A703C237c10965bfaFFb43787Ec80e1384"
+      abi: GrantManager
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - GrantCreated
+        - GrantFulfilled
+        - GrantUpdated
+      abis:
+        - name: GrantManager
+          file: ./abis/GrantManager.json
+      eventHandlers:
+        - event: GrantCreated(indexed uint96,indexed address,(uint256,string),uint256,uint256)
+          handler: handleGrantCreated
+        - event: GrantFulfilled(indexed uint96,indexed address,indexed address,(uint256,string),uint256,uint256)
+          handler: handleGrantFulfilled
+        - event: GrantUpdated(indexed uint96,indexed address,(uint256,string),uint256,uint256)
+          handler: handleGrantUpdated
+      file: ./src/mapping.ts

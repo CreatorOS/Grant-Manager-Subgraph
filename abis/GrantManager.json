@@ -1,0 +1,276 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint96",
+        "name": "id",
+        "type": "uint96"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "protocol", "type": "uint256" },
+          { "internalType": "string", "name": "pointer", "type": "string" }
+        ],
+        "indexed": false,
+        "internalType": "struct MetaPtr",
+        "name": "metaPtr",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "GrantCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint96",
+        "name": "id",
+        "type": "uint96"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "payee",
+        "type": "address"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "protocol", "type": "uint256" },
+          { "internalType": "string", "name": "pointer", "type": "string" }
+        ],
+        "indexed": false,
+        "internalType": "struct MetaPtr",
+        "name": "metaPtr",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "GrantFulfilled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint96",
+        "name": "id",
+        "type": "uint96"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "protocol", "type": "uint256" },
+          { "internalType": "string", "name": "pointer", "type": "string" }
+        ],
+        "indexed": false,
+        "internalType": "struct MetaPtr",
+        "name": "metaPtr",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "GrantUpdated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_owner", "type": "address" },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "protocol", "type": "uint256" },
+          { "internalType": "string", "name": "pointer", "type": "string" }
+        ],
+        "internalType": "struct MetaPtr",
+        "name": "_metaPtr",
+        "type": "tuple"
+      }
+    ],
+    "name": "createGrant",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint96", "name": "_id", "type": "uint96" },
+      { "internalType": "address", "name": "_payee", "type": "address" }
+    ],
+    "name": "fulfillGrant",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllGrants",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint96", "name": "id", "type": "uint96" },
+          { "internalType": "address", "name": "owner", "type": "address" },
+          { "internalType": "uint48", "name": "createdAt", "type": "uint48" },
+          { "internalType": "uint48", "name": "lastUpdated", "type": "uint48" },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "protocol",
+                "type": "uint256"
+              },
+              { "internalType": "string", "name": "pointer", "type": "string" }
+            ],
+            "internalType": "struct MetaPtr",
+            "name": "metaPtr",
+            "type": "tuple"
+          },
+          { "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "internalType": "struct GrantManager.Grant[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint96", "name": "_startId", "type": "uint96" },
+      { "internalType": "uint96", "name": "_endId", "type": "uint96" }
+    ],
+    "name": "getGrants",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint96", "name": "id", "type": "uint96" },
+          { "internalType": "address", "name": "owner", "type": "address" },
+          { "internalType": "uint48", "name": "createdAt", "type": "uint48" },
+          { "internalType": "uint48", "name": "lastUpdated", "type": "uint48" },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "protocol",
+                "type": "uint256"
+              },
+              { "internalType": "string", "name": "pointer", "type": "string" }
+            ],
+            "internalType": "struct MetaPtr",
+            "name": "metaPtr",
+            "type": "tuple"
+          },
+          { "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "internalType": "struct GrantManager.Grant[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "grantCount",
+    "outputs": [{ "internalType": "uint96", "name": "", "type": "uint96" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint96", "name": "", "type": "uint96" }],
+    "name": "grants",
+    "outputs": [
+      { "internalType": "uint96", "name": "id", "type": "uint96" },
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "uint48", "name": "createdAt", "type": "uint48" },
+      { "internalType": "uint48", "name": "lastUpdated", "type": "uint48" },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "protocol", "type": "uint256" },
+          { "internalType": "string", "name": "pointer", "type": "string" }
+        ],
+        "internalType": "struct MetaPtr",
+        "name": "metaPtr",
+        "type": "tuple"
+      },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint96", "name": "_id", "type": "uint96" },
+      { "internalType": "address", "name": "_owner", "type": "address" },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "protocol", "type": "uint256" },
+          { "internalType": "string", "name": "pointer", "type": "string" }
+        ],
+        "internalType": "struct MetaPtr",
+        "name": "_metaPtr",
+        "type": "tuple"
+      }
+    ],
+    "name": "updateGrant",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
